@@ -19,25 +19,25 @@
 
 - [🔍 Overview](#overview)
 - [🤔 Why Smart-Resume-Reviewer?](#why-smart-resume-reviewer?)
-
   - [🔐 Privacy & Trust](#privacy-&-trust)
   - [⚡ Fast & Distraction-Free](#fast-&-distraction-free)
   - [🏆 Proven Results](#proven-results)
   - [🎯 Flexible for All Career Paths](#flexible-for-all-career-paths)
-
 - [🔍 How This App Is Different?](#how-this-app-is-different?)
-
-- [🚀 Live Demo](#demo)
+- [🚀 Live Demo](#live-demo)
 - [🌟 Key Features](#key-features)
   - [👤 Resume Analysis](#resume-analysis)
   - [🧑‍💼 AI-Suggestions](#ai-suggestions)
   - [🛡️ Developer Friendly](#developer-friendly)
+  - [✨ Additional Features](#additional-features)
+- [📸 Screenshots](#screenshots)
 - [🛠️ Tech Stack](#tech-stack)
 - [🧭 Project Structure](#project-structure)
-- [⚙️ Project Setup](#project-setup)
-
-- [🤝 Contributors](#contributors)
-
+- [⚙️ Prerequisites](#prerequisites)
+- [🚀 Project Setup](#project-setup)
+- [📖 Usage Guide](#usage-guide)
+- [🤝 Contributing](#contributing)
+- [🐛 Troubleshooting](#troubleshooting)
 - [💡 Suggestions & Feedback](#suggestions-feedback)
 - [🙌 Show Your Support](#show-your-support)
 - [📄 License](#license)
@@ -123,7 +123,7 @@ The goal is simple: help users submit better resumes with confidence.
 
  <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-<h2 align="center">🚀 Live Demo</h2>
+<h2 id="live-demo" align="center">🚀 Live Demo</h2>
 
 <p align="center">
   <a href="https://smart-resume-reviewer-oygjhtx9qnhf4iztnprmcg.streamlit.app/" target="_blank">
@@ -139,97 +139,378 @@ The goal is simple: help users submit better resumes with confidence.
 
 <h3 id="resume-analysis">👤 Resume Analysis</h3>
  
-- Upload PDF resume
-- Extracts and displays resume content
+- **PDF Upload & Parsing**: Upload your resume in PDF format and extract text automatically
+- **Content Extraction**: Intelligently extracts and displays resume content including:
+  - Personal information
+  - Education details
+  - Work experience
+  - Skills and certifications
+  - Projects and achievements
+- **Section Detection**: Automatically identifies missing or incomplete sections
+- **Real-time Preview**: View your resume content as it's being analyzed
 
-<h3 id="ai-suggestions">🧑‍💼 AI Suggestions</h3>
+<h3 id="ai-suggestions">🧑‍💼 AI-Powered Suggestions</h3>
 
-- Highlights weak areas (missing sections, outdated skills)
-- Provides role-based improvement suggestions
+- **Role-Based Analysis**: Get suggestions tailored to your target job role
+- **Missing Sections Detection**: Identifies critical missing sections (Education, Skills, Projects, etc.)
+- **Skill Matching**: Compares your skills with job requirements
+- **Keyword Optimization**: Suggests relevant keywords for ATS compatibility
+- **Grammar & Language**: Checks for grammar and language issues
+- **Improvement Checklist**: Actionable, prioritized suggestions for resume enhancement
+- **Score Calculation**: Get a resume score (0-100) based on multiple factors
 
-<h3 id="developer-friendly"> 🛡️ Developer Friendly</h3>
+<h3 id="developer-friendly">🛡️ Developer Friendly</h3>
 
-- Beginner-friendly codebase
-- Easy to extend and customize
+- **Beginner-friendly Codebase**: Clean, well-commented code easy to understand
+- **Modular Architecture**: Organized into components and utilities
+- **Easy to Extend**: Simple to add new features or customize existing ones
+- **Comprehensive Documentation**: Detailed README and inline code comments
+- **Open Source**: MIT License - free to use and modify
+
+<h3 id="additional-features">✨ Additional Features</h3>
+
+- **Resume Builder**: Create new resumes from scratch
+- **Resume History**: Track your resume improvements over time
+- **Version Comparison**: Compare different versions of your resume
+- **Progress Analytics**: Visual charts showing score trends
+- **Multiple Job Roles**: Support for various career paths and industries
+- **Dark/Light Theme**: Choose your preferred theme
+- **Privacy-First**: No data storage, all processing in memory
 
 ---
 
-<h2 id="#tech-stack"> 🌐 Tech Stack
-</h2>
+<h2 id="screenshots">📸 Screenshots</h2>
 
-- **Frontend**: HTML/CSS(For styling purpose)
-- **Backend**: Python (Streamlit)
-- **AI Logic**: Rule-based or prompt-based suggestions
-- **PDF Parsing**: PyMuPDF / pdfminer.six
+<div align="center">
+  <img src="screenshots/Screenshot%202025-12-25%20185235.png" alt="Dashboard" width="800"/>
+  <p><em>Main Dashboard - Resume Analysis Interface</em></p>
+  
+  <img src="screenshots/Screenshot%202025-12-25%20185250.png" alt="Analysis" width="800"/>
+  <p><em>Resume Analysis Results</em></p>
+  
+  <img src="screenshots/Screenshot%202025-12-25%20185459.png" alt="Features" width="800"/>
+  <p><em>Key Features Showcase</em></p>
+</div>
 
 ---
 
-<h2 id="#project-structure"> 📁 Project Structure
+<h2 id="tech-stack"> 🌐 Tech Stack
 </h2>
 
-```C:.
+### Frontend
+
+- **Streamlit** - Web framework for Python applications
+- **HTML/CSS** - Custom styling and UI components
+- **JavaScript** - Interactive features (prevent double submit)
+
+### Backend
+
+- **Python 3.10+** - Core programming language
+- **Streamlit** - Application framework
+
+### Libraries & Tools
+
+- **PyMuPDF (fitz)** - PDF parsing and text extraction
+- **pdfplumber** - Alternative PDF parsing library
+- **scikit-learn** - Machine learning for resume classification
+- **pandas** - Data manipulation and analysis
+- **language-tool-python** - Grammar and language checking
+- **fpdf2** - PDF generation for resume builder
+- **SQLite** - Database for user data and history
+
+### AI/ML
+
+- **Rule-based Analysis** - Pattern matching for resume sections
+- **TF-IDF Vectorization** - Text feature extraction
+- **Resume Classifier** - Pre-trained ML model for role prediction
+
+---
+
+<h2 id="project-structure"> 📁 Project Structure
+</h2>
+
+```
 Smart-Resume-Reviewer/
 │
-├── .github/
+├── .github/                    # GitHub templates and workflows
 │   ├── ISSUE_TEMPLATE/
 │   └── pull_request_template.md
 │
-├── assets/
-│   └── logo_Pixel.png
+├── assets/                     # Images and logos
+│   ├── hero_image.png
+│   ├── logo_Pixel.png
+│   └── SRR-logo.png
 │
-├── components/
+├── components/                 # UI Components (Frontend)
+│   ├── __init__.py
 │   ├── contributors.py
 │   ├── features.py
 │   ├── footer.py
 │   ├── header.py
+│   ├── landing.py
+│   ├── login.py
+│   ├── resume_builder.py
+│   ├── resume_tips.py
+│   ├── static_pages.py
 │   ├── styles.py
 │   ├── suggestions.py
 │   └── upload_card.py
 │
-├── data/
+├── data/                       # Sample data and database
 │   ├── Resume1.pdf
-│   └── Resume2.pdf
+│   ├── Resume2.pdf
+│   ├── synthetic_resumes.csv
+│   └── users.db
 │
-├── static/
+├── generated/                  # Generated resume PDFs
+│   └── Resume_*.pdf
+│
+├── models/                     # Machine Learning Models
+│   ├── resume_classifier.pkl
+│   └── tfidf_vectorizer.pkl
+│
+├── scripts/                    # Utility scripts
+│   ├── generate_data.py
+│   └── train_model.py
+│
+├── screenshots/                # Application screenshots
+│   └── Screenshot*.png
+│
+├── static/                     # Static files
 │   ├── css/
+│   │   └── globals.css
 │   └── prevent_double_submit.js
 │
-├── utils/
+├── utils/                      # Utility functions (Backend Logic)
 │   ├── analyze_resume.py
+│   ├── db.py
 │   ├── job_roles.json
+│   ├── pdf_generator.py
+│   ├── resume_history.py
 │   └── resume_parser.py
 │
+├── venv/                       # Virtual environment (not in git)
+│
 ├── .gitignore
-├── app.py
+├── app.py                      # Main application entry point
+├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE
+├── package.json
 ├── package-lock.json
 ├── README.md
 ├── requirements.txt
 └── SECURITY.md
-
 ```
 
 ---
 
-<h2 id="#project-setup"> ✨ 🚀 Project Setup</h2>
+<h2 id="prerequisites">⚙️ Prerequisites</h2>
 
-### 1️⃣ Create Virtual Environment
+Before you begin, ensure you have the following installed:
 
-    virtualenv venv
-    ./venv/Scripts/activate
-
-### 2️⃣ Install Dependencies
-
-    pip install -r requirements.txt
-
-### 3️⃣ Run the Application
-
-    streamlit run app.py
+- **Python 3.10 or higher** - [Download Python](https://www.python.org/downloads/)
+- **pip** - Python package manager (usually comes with Python)
+- **Git** - [Download Git](https://git-scm.com/downloads)
+- **Virtual Environment** (recommended) - `virtualenv` or `venv`
 
 ---
 
-<h2 id="#contributors"> ✨ Contributors</h2>
+<h2 id="project-setup">🚀 Project Setup</h2>
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/SharanyaAchanta/Smart-Resume-Reviewer.git
+cd Smart-Resume-Reviewer
+```
+
+### Step 2: Create Virtual Environment
+
+**For Windows:**
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**For Linux/Mac:**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**Alternative (using virtualenv):**
+
+```bash
+# Install virtualenv if not installed
+pip install virtualenv
+
+# Create virtual environment
+virtualenv venv
+
+# Activate (Windows)
+venv\Scripts\activate
+
+# Activate (Linux/Mac)
+source venv/bin/activate
+```
+
+### Step 3: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 4: Run the Application
+
+```bash
+streamlit run app.py
+```
+
+The application will start and automatically open in your default browser at `http://localhost:8501`
+
+### Step 5: (Optional) Train Models
+
+If you want to retrain the ML models:
+
+```bash
+python scripts/train_model.py
+```
+
+---
+
+<h2 id="usage-guide">📖 Usage Guide</h2>
+
+### For End Users
+
+1. **Upload Resume**
+
+   - Click on "Upload Resume" button
+   - Select a PDF file from your device
+   - Wait for the file to upload
+
+2. **Select Job Role**
+
+   - Choose your target job category (e.g., Software Engineering)
+   - Select the specific role (e.g., Full Stack Developer)
+   - Review the required skills displayed
+
+3. **View Analysis**
+
+   - Resume score (out of 100)
+   - Missing sections identified
+   - Skill matching percentage
+   - AI-generated improvement suggestions
+
+4. **Review Suggestions**
+
+   - Read through the improvement checklist
+   - Implement suggested changes
+   - Re-upload updated resume to track progress
+
+5. **Track Progress**
+   - View resume history in the sidebar
+   - Compare different versions
+   - See score trends over time
+
+### For Developers
+
+- **Adding New Job Roles**: Edit `utils/job_roles.json`
+- **Customizing Analysis**: Modify `utils/analyze_resume.py`
+- **Adding UI Components**: Create new files in `components/`
+- **Styling Changes**: Update `components/styles.py` or `static/css/globals.css`
+
+---
+
+<h2 id="contributing">🤝 Contributing</h2>
+
+We welcome contributions! Please follow these steps:
+
+1. **Read** the [Contributing Guidelines](CONTRIBUTING.md)
+2. **Fork** the repository
+3. **Create** a new branch (`git checkout -b feature/AmazingFeature`)
+4. **Make** your changes
+5. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+6. **Push** to the branch (`git push origin feature/AmazingFeature`)
+7. **Open** a Pull Request
+
+### Important Notes
+
+- ⚠️ **Always create an issue first** before starting work
+- ⚠️ **Wait for issue assignment** before coding
+- ✅ Follow the code style and conventions
+- ✅ Add comments for complex logic
+- ✅ Test your changes before submitting
+
+For detailed guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+<h2 id="troubleshooting">🐛 Troubleshooting</h2>
+
+### Common Issues and Solutions
+
+#### Issue: `streamlit: command not found`
+
+**Solution:**
+
+```bash
+pip install streamlit
+# Or reinstall all dependencies
+pip install -r requirements.txt
+```
+
+#### Issue: `ModuleNotFoundError` when running app
+
+**Solution:**
+
+- Ensure virtual environment is activated
+- Reinstall dependencies: `pip install -r requirements.txt`
+- Check if you're in the correct directory
+
+#### Issue: PDF parsing fails
+
+**Solution:**
+
+- Ensure PDF is not password-protected
+- Check if PDF is corrupted
+- Try converting PDF to a newer version
+
+#### Issue: Database errors
+
+**Solution:**
+
+- Delete `data/users.db` and restart the app (creates fresh database)
+- Ensure write permissions in `data/` directory
+
+#### Issue: Port 8501 already in use
+
+**Solution:**
+
+```bash
+# Use a different port
+streamlit run app.py --server.port 8502
+```
+
+#### Issue: Models not found
+
+**Solution:**
+
+- Ensure `models/` directory exists
+- Run `python scripts/train_model.py` to generate models
+- Check file permissions
+
+### Getting Help
+
+- 🐛 **Found a bug?** [Open an issue](https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/issues)
+- 💡 **Have a suggestion?** [Request a feature](https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/issues)
+- ❓ **Need help?** Check existing issues or create a new one
+
+---
+
+<h2 id="contributors">🤝 Contributors</h2>
 
 Thanks to all the wonderful contributors 💖
 
@@ -238,6 +519,10 @@ Thanks to all the wonderful contributors 💖
 </a>
 
 See full list of contributors 👉 [Contribution Graph](https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/graphs/contributors)
+
+### Want to Contribute?
+
+We'd love to have you! Check out our [Contributing Guide](CONTRIBUTING.md) to get started.
 
   <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
@@ -267,23 +552,79 @@ This project is licensed under the MIT License - see the [`License`](https://git
 <h2 id="stargazers">⭐ Stargazers</h2>
 
 <div align="center">
+  
+  <p><strong>Thank you to all our stargazers! ⭐</strong></p>
+  
   <a href="https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/stargazers">
     <img 
-      src="https://reporoster.com/stars/SharanyaAchanta/Smart-Resume-Reviewer?type=svg&limit=20&names=false" 
-      alt="Stargazers"
+      src="https://img.shields.io/github/stars/SharanyaAchanta/Smart-Resume-Reviewer?style=for-the-badge&logo=github&logoColor=white&labelColor=000000&color=ffd700" 
+      alt="GitHub stars"
     />
   </a>
+  
+  <a href="https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/watchers">
+    <img 
+      src="https://img.shields.io/github/watchers/SharanyaAchanta/Smart-Resume-Reviewer?style=for-the-badge&logo=github&logoColor=white&labelColor=000000&color=1f2937" 
+      alt="GitHub watchers"
+    />
+  </a>
+  
+  <br><br>
+  
+  <!-- Stargazers List Image -->
+  <a href="https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/stargazers">
+    <img 
+      src="https://reporoster.com/stars/dark/SharanyaAchanta/Smart-Resume-Reviewer" 
+      alt="Stargazers"
+      width="500"
+    />
+  </a>
+  
+  <br><br>
+  
+  <p>
+    <em>Click the image above to see all stargazers! 🌟</em>
+  </p>
+  
 </div>
 
 <h2 id="forkers">🍴 Forkers</h2>
 
 <div align="center">
+  
+  <p><strong>Thank you to all our forkers! 🍴</strong></p>
+  
   <a href="https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/network/members">
     <img 
-      src="https://reporoster.com/forks/SharanyaAchanta/Smart-Resume-Reviewer?type=svg&limit=20&names=false" 
-      alt="Forkers"
+      src="https://img.shields.io/github/forks/SharanyaAchanta/Smart-Resume-Reviewer?style=for-the-badge&logo=github&logoColor=white&labelColor=000000&color=3b82f6" 
+      alt="GitHub forks"
     />
   </a>
+  
+  <a href="https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/graphs/contributors">
+    <img 
+      src="https://img.shields.io/github/contributors/SharanyaAchanta/Smart-Resume-Reviewer?style=for-the-badge&logo=github&logoColor=white&labelColor=000000&color=10b981" 
+      alt="GitHub contributors"
+    />
+  </a>
+  
+  <br><br>
+  
+  <!-- Forkers List Image -->
+  <a href="https://github.com/SharanyaAchanta/Smart-Resume-Reviewer/network/members">
+    <img 
+      src="https://reporoster.com/forks/dark/SharanyaAchanta/Smart-Resume-Reviewer" 
+      alt="Forkers"
+      width="500"
+    />
+  </a>
+  
+  <br><br>
+  
+  <p>
+    <em>Click the image above to see all forkers! 🚀</em>
+  </p>
+  
 </div>
 
 ---
