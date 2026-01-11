@@ -1,5 +1,9 @@
 # 🌟 Contributing to **Smart Resume Reviewer**
 
+<div align="center"><img src="assets/SRR-logo.png" style="width: 220px; height: 220px;"  alt="Smart-Resume-Review Logo" /></div>
+
+---
+
 Thank you for your interest in contributing to **Smart Resume Reviewer**! Your contributions help improve the project and empower users to review resumes smarter and faster. This document explains how to contribute, the workflow to follow, and standards we expect.
 
 ---
