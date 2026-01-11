@@ -1,165 +1,213 @@
-
 # 🌟 Contributing to **Smart Resume Reviewer**
 
-Thank you for your interest in contributing to **Smart Resume Reviewer**!
-Your contributions help improve the project and empower users to review resumes smarter and faster.
-Please follow the guidelines below to ensure smooth collaboration.
+Thank you for your interest in contributing to **Smart Resume Reviewer**! Your contributions help improve the project and empower users to review resumes smarter and faster. This document explains how to contribute, the workflow to follow, and standards we expect.
 
 ---
 
-## 🚀 Contribution Workflow (Must Follow)
+## 🚀 Quick start (TL;DR)
 
-### **1. Create an Issue First**
+1. Create an issue describing your change.
+2. Wait for assignment from a maintainer.
+3. Fork the repo and create a branch: `issue-<number>-short-description`.
+4. Make changes, add tests, run lint/format.
+5. Push and open a Pull Request linking the issue.
 
-Before starting any work:
+---
 
-* Open a **new issue** describing your feature, improvement, or bug fix.
-* Provide as much detail as possible:
+## 🧭 Contribution Workflow (Must Follow)
 
-  * What you plan to change
-  * Why the change is important
-  * Screenshots/logs (if applicable)
+### 1) Create an Issue First
 
-This avoids duplicate work and helps maintainers review the proposal.
+Before writing code, open a new issue with:
 
-### **2. Wait Until the Issue Is Assigned**
+- Title: short, descriptive
+- Description: what you want to change and why
+- Reproduction steps / screenshots / logs (if applicable)
+- Proposed implementation (optional)
 
-**Do NOT start working immediately.**
-A maintainer will:
+Issue template (suggested):
 
-* Review your issue
-* Ask clarifying questions (if needed)
-* Assign the issue to you
+- Problem summary:
+- Proposed change:
+- Steps to reproduce / test:
+- Screenshots / attachments:
 
-Only start contributing **after you are officially assigned** to avoid conflicts with other contributors.
+This prevents duplicate work and helps maintainers prioritize.
 
-### **3. Fork the Repository**
+### 2) Wait for Assignment
 
-Once assigned, click **Fork** on GitHub to copy the project to your account.
+Do NOT start working until a maintainer assigns the issue. Maintainers may ask clarifying questions or suggest a different approach.
 
-### **4. Clone Your Fork**
+### 3) Fork & Clone
+
+Fork the repository on GitHub, then clone your fork:
 
 ```bash
 git clone https://github.com/your-username/Smart-Resume-Reviewer.git
 cd Smart-Resume-Reviewer
 ```
 
-### **5. Create a New Branch**
+### 4) Create a Branch
 
-Use a descriptive branch name:
+Use a descriptive branch name including the issue number:
 
-```bash
+```
 git checkout -b issue-<number>-short-description
 ```
 
-Example:
+Examples:
 
-```
-git checkout -b issue-12-add-dark-mode
-```
+- `issue-12-add-dark-mode`
+- `issue-34-fix-upload-crash`
 
-### **6. Make Your Changes**
+### 5) Make Small, Focused Commits
 
-* Follow project structure
-* Write clean, commented, and modular code
-* Ensure performance and readability
-* Update documentation if needed
+- Keep PRs focused and small.
+- Write clear commit messages following Conventional Commits (see below).
 
-### **7. Install Dependencies & Test Locally**
+### 6) Run Locally & Add Tests
+
+Install dependencies and run the app locally:
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Verify your changes thoroughly before submitting.
+If you add logic, include unit tests where feasible (project uses pytest if available). Ensure tests pass before opening a PR.
 
-### **8. Commit and Push**
+### 7) Linting & Formatting
 
-```bash
+Follow PEP8. Use black/isort/flake8 if you have them configured locally. Remove debug prints and unused imports.
+
+### 8) Commit & Push
+
+Commit examples:
+
+```
 git add .
-git commit -m "Fix: detailed description (issue #<number>)"
-git push origin issue-<number>-short-description
+git commit -m "fix(upload): avoid crash on empty file (closes #34)"
+git push origin issue-34-fix-upload-crash
 ```
 
-### **9. Open a Pull Request**
+### 9) Open a Pull Request
 
-Go to the **original repo** → **Pull Requests** → **New Pull Request**
+Open the PR in the original repository (not your fork). In the PR description:
 
-In your PR description:
-
-* Clearly explain what you changed
-* Link the issue using:
-
-  ```
-  Closes #<issue-number>
-  ```
-* Include screenshots (if UI-related)
+- Explain what you changed and why
+- Link the issue: `Closes #<issue-number>`
+- Include screenshots for UI changes
+- Describe testing steps for reviewers
 
 ---
 
-## 🐞 Reporting Issues
+## 📐 Branch & Commit Conventions
 
-If you find a bug or want a feature:
+Branch naming:
 
-1. Open an issue
-2. Provide clear reproduction steps
-3. Add screenshots/logs if applicable
-4. Wait for a maintainer to assign you
+- `issue-<number>-short-description`
 
----
+Commit messages (Conventional Commits):
 
-## 📐 Coding Standards
+- feat: add new resume section analyzer
+- fix: resolve file upload crash
+- docs: improve README and contributing guide
+- refactor: optimize text preprocessing logic
+- style: formatting and indentation fixes
 
-* Follow **PEP8** for Python
-* Use meaningful variable and function names
-* Keep code modular and maintainable
-* Add docstrings where helpful
-* Avoid unused imports and redundant code
+Include the issue number in commit or PR message when applicable (e.g., `fix: parse dates correctly (closes #12)`).
 
 ---
 
-## 📄 Commit Message Guidelines
+## 🧪 PR Checklist (Please complete before requesting review)
 
-Follow conventional commits:
+- [ ] Issue created and assigned
+- [ ] Branch name follows convention
+- [ ] Code runs without errors
+- [ ] No debug prints or commented-out blocks
+- [ ] Tests added/updated (if applicable)
+- [ ] Documentation updated if needed
+- [ ] Linter/formatter run
+- [ ] PR description is clear and includes links to related issues
+
+Maintainers may request changes; please respond to review comments promptly.
+
+---
+
+## 🛠 Development & Testing Details
+
+- To run the app: `streamlit run app.py` (ensure required Python version from `requirements.txt`).
+- Unit tests: `pytest` (if tests are present).
+- Model files are in `models/` and generated PDFs are in `generated/`.
+- Use `data/` for sample inputs; do not commit large files to the repo.
+
+---
+
+## 🧾 Code Style & Best Practices
+
+- Follow PEP8 and write clear docstrings for new modules/functions.
+- Keep functions small and focused.
+- Avoid hard-coded values; prefer configuration or constants.
+- Add logging instead of print statements for non-interactive code.
+
+---
+
+## 🔒 Security & Sensitive Data
+
+- Do NOT commit secrets (API keys, passwords). If you accidentally commit secrets, contact maintainers immediately.
+- For security issues, open a private disclosure according to the repository's SECURITY.md.
+
+---
+
+## 📣 Communication
+
+- Ask questions on the issue thread.
+- If you need help, tag a maintainer or open a discussion.
+- For larger changes, propose the design in the issue before implementing.
+
+---
+
+## 🧾 Templates (Suggested)
+
+Issue template (copy into the issue body):
 
 ```
-feat: add new resume section analyzer
-fix: resolve file upload crash
-docs: improve README and contributing guide
-refactor: optimize text preprocessing logic
-style: formatting and indentation fixes
+Title:
+
+Problem summary:
+
+Steps to reproduce:
+
+Expected behaviour:
+
+Proposed solution:
+
+Screenshots / attachments:
+```
+
+Pull Request template (copy into PR description):
+
+```
+Summary of changes:
+
+Related issue: Closes #<number>
+
+How to test:
+
+Screenshots (if any):
+
+Checklist:
+- [ ] Tests added/updated
+- [ ] Lint/format ran
+- [ ] Documentation updated
 ```
 
 ---
 
-## 🧪 Pull Request Checklist
+## 🧡 Thank you
 
-Before submitting your PR:
-
-* [ ] Issue created and assigned
-* [ ] Branch name follows convention
-* [ ] Code runs without errors
-* [ ] No debug prints left
-* [ ] Documentation updated if necessary
-* [ ] PR description is clear and complete
+Every contribution — big or small — helps improve **Smart Resume Reviewer**. We appreciate your effort and enthusiasm. If you have any questions while contributing, please ask in the issue thread.
 
 ---
 
-## 🤝 Need Help?
-
-If you’re unsure about anything:
-
-* Ask in the issue
-* Start a discussion
-* Tag a maintainer
-
-We’re here to help you contribute comfortably!
-
----
-
-## ❤️ Thank You!
-
-Every contribution — big or small — helps improve **Smart Resume Reviewer**.
-We truly appreciate your efforts and enthusiasm! 🚀✨
-
+_Maintainers: Add or update guidelines here as the project evolves._
